@@ -14,7 +14,7 @@ module.exports.createPerson = (req, res) => {
 module.exports.getAllPeople = (req, res) => {
     Person.find()
         .then( (allThePeoples) => {
-            res.json( {people: allThePeoples})
+            res.json(allThePeoples)
         })
         .catch( err => {
             res.json( {message: 'Something went wrong', error: err})

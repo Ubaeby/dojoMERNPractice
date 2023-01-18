@@ -8,7 +8,7 @@ const PersonList = props => {
         axios.get("http://localhost:8000/api/people")
             .then( res => {
                 console.log(res.data);
-                setPeople([res.data]);
+                setPeople(res.data); // this is the change
             })
             .catch( err => {
                 console.log(err)
@@ -18,7 +18,7 @@ const PersonList = props => {
     return (
         <div>
             {
-                people.map((person, index) => {
+                people.length > 0 && people.map((person, index) => {
                     return <p key={index}> {person.lastName}, {person.firstName}</p>
                 })
             }
