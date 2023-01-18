@@ -20,3 +20,9 @@ module.exports.getAllPeople = (req, res) => {
             res.json( {message: 'Something went wrong', error: err})
         });
 }
+
+module.exports.getPerson = (req, res) => {
+    Person.findOne({_id:req.params.id})
+        .then(person => res.json(person))
+        .catch(err => res.json(err))
+}
