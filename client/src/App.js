@@ -5,7 +5,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import axios from 'axios';
 import Main from './views/Main'
 import Detail from './components/Detail'
-import Update from './components/Update';
+import Update from './views/Update';
 
 const App = () => {
   return (

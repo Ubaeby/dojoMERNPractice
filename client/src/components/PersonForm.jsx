@@ -2,27 +2,29 @@ import { useState } from 'react'
 import axios from 'axios';
 const PersonForm= (props) => {
     // const [ message, setMessage ] = useState("Loading...")
-    const {people, setPeople} = props;
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
+    const { intialFirstName, intialLastName, onSubmitProp} = props;
+    // const {people, setPeople} = props;
+    const [firstName, setFirstName] = useState(intialFirstName);
+    const [lastName, setLastName] = useState(intialLastName);
 
     const onSubmitHandler = e => {
         e.preventDefault();
-        axios.post('http://localhost:8000/api/people', {
-            firstName,
-            lastName
-        })
-            .then(res => {
-                console.log(res);
-                console.log(res.data);
-                setPeople([...people, res.data]);
-            })
-            .catch( err => 
-                console.log(err)
-            );
+        onSubmitProp( {firstName, lastName})
+        // axios.post('http://localhost:8000/api/people', {
+        //     firstName,
+        //     lastName
+        // })
+        //     .then(res => {
+        //         console.log(res);
+        //         console.log(res.data);
+        //         setPeople([...people, res.data]);
+        //     })
+        //     .catch( err => 
+        //         console.log(err)
+        //     );
 
-        setFirstName("");
-        setLastName("");
+        // setFirstName("");
+        // setLastName("");
     }
 
     // useEffect(()=>{
